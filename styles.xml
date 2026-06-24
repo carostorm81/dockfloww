@@ -1,0 +1,10 @@
+<resources>
+    <style name="Theme.DockFlowSupervisor" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/df_ice</item>
+        <item name="android:navigationBarColor">@color/df_ice</item>
+        <item name="android:colorAccent">@color/df_green_dark</item>
+    </style>
+</resources>

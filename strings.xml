@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DockFlow Supervisor</string>
+    <string name="dockflow_url">https://dockfloww.netlify.app/</string>
+</resources>

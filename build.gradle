@@ -1,0 +1,16 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.owlltech.dockflow.supervisor'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.owlltech.dockflow.supervisor'
+        minSdk 23
+        targetSdk 35
+        versionCode 1
+        versionName '1.0.0'
+    }
+}
