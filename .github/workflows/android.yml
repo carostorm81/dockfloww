@@ -24,6 +24,14 @@ jobs:
         run: |
           mkdir -p app/src/main/java/com/owlltech/dockflow
           mkdir -p app/src/main/res/values
+          mkdir -p app/src/main/res/drawable
+
+          if [ -f "coruja.png" ]; then
+            cp coruja.png app/src/main/res/drawable/coruja.png
+          else
+            echo "ERRO: coruja.png não encontrada na raiz do repositório"
+            exit 1
+          fi
 
           cat > settings.gradle <<'EOF'
           pluginManagement {
@@ -33,6 +41,7 @@ jobs:
                   gradlePluginPortal()
               }
           }
+
           dependencyResolutionManagement {
               repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
               repositories {
@@ -40,6 +49,7 @@ jobs:
                   mavenCentral()
               }
           }
+
           rootProject.name = 'DockFlowSupervisor'
           include ':app'
           EOF
@@ -78,7 +88,10 @@ jobs:
               <application
                   android:theme="@style/AppTheme"
                   android:label="DockFlow Supervisor"
+                  android:icon="@drawable/coruja"
+                  android:roundIcon="@drawable/coruja"
                   android:usesCleartextTraffic="true">
+
                   <activity
                       android:name=".MainActivity"
                       android:exported="true">
@@ -91,12 +104,24 @@ jobs:
           </manifest>
           EOF
 
+          cat > app/src/main/res/drawable/splash_background.xml <<'EOF'
+          <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+              <item android:drawable="#F4FAF6" />
+              <item>
+                  <bitmap
+                      android:gravity="center"
+                      android:src="@drawable/coruja" />
+              </item>
+          </layer-list>
+          EOF
+
           cat > app/src/main/res/values/styles.xml <<'EOF'
           <resources>
               <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
                   <item name="android:windowLightStatusBar">true</item>
                   <item name="android:statusBarColor">#F4FAF6</item>
                   <item name="android:navigationBarColor">#F4FAF6</item>
+                  <item name="android:windowBackground">@drawable/splash_background</item>
               </style>
           </resources>
           EOF
