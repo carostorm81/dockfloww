@@ -73,8 +73,8 @@ jobs:
                   applicationId 'com.owlltech.dockflow'
                   minSdk 23
                   targetSdk 35
-                  versionCode 1
-                  versionName '1.0'
+                  versionCode 2
+                  versionName '1.1'
               }
           }
           EOF
@@ -104,24 +104,13 @@ jobs:
           </manifest>
           EOF
 
-          cat > app/src/main/res/drawable/splash_background.xml <<'EOF'
-          <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-              <item android:drawable="#F4FAF6" />
-              <item>
-                  <bitmap
-                      android:gravity="center"
-                      android:src="@drawable/coruja" />
-              </item>
-          </layer-list>
-          EOF
-
           cat > app/src/main/res/values/styles.xml <<'EOF'
           <resources>
               <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
                   <item name="android:windowLightStatusBar">true</item>
                   <item name="android:statusBarColor">#F4FAF6</item>
                   <item name="android:navigationBarColor">#F4FAF6</item>
-                  <item name="android:windowBackground">@drawable/splash_background</item>
+                  <item name="android:windowBackground">#F4FAF6</item>
               </style>
           </resources>
           EOF
